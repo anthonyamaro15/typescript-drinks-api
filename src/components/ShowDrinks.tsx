@@ -13,14 +13,16 @@ interface Props {
 const ShowDrink: React.FC<Props> = ({ data }) => {
   return (
     <div className="ShowDrinks">
-      <h3>is this even working??</h3>
+      <h2>{data.length > 0 ? "Results" : "No result were found."}</h2>
       <div className="display-flex">
         {data.map((drink: Drinks) => (
-          <div key={drink.idDrink}>
-            <p>here: {drink.strDrink}</p>
-            <p>{drink.strAlcoholic}</p>
+          <div key={drink.idDrink} className="drink-wrapper">
             <img src={drink.strDrinkThumb} alt="" />
-            <p>{drink.strGlass}</p>
+            <div className="drink-info">
+              <p>here: {drink.strDrink}</p>
+              <p>{drink.strAlcoholic}</p>
+              <p>{drink.strGlass}</p>
+            </div>
           </div>
         ))}
       </div>

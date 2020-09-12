@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from "react";
 import ShowDrinks from "./ShowDrinks";
+import SearchForm from "./SearchForm";
 import axios from "axios";
 
 const MainApp = () => {
   const [data, setData] = useState([]);
+  const [drinkName, setDrinkName] = useState<string>("margarita");
 
   useEffect(() => {
     axios
-      .get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita`)
+      .get(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`
+      )
       .then((res) => {
-        console.log("here ", res.data.drinks);
         setData(res.data.drinks);
       });
-  }, []);
+  }, [drinkName]);
+
+  const getDrinkName = (drink: string) => {
+    setDrinkName(drink);
+  };
   return (
     <div>
-      <h3>hi</h3>
+      <SearchForm getDrinkName={getDrinkName} />
       <ShowDrinks data={data} />
     </div>
   );
