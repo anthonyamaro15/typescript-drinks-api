@@ -4,14 +4,64 @@
   padding: 0;
 }
 
+.SearchForm {
+  max-width: 1500px;
+  margin: 2rem auto 4rem;
+  text-align: center;
+
+  form {
+    label {
+      input {
+        outline: none;
+        border: 1px solid grey;
+        border-radius: 4px;
+        padding: 0.3rem;
+      }
+    }
+    button {
+      outline: none;
+      // border: 1px solid grey;
+      border: none;
+      border-radius: 4px;
+      padding: 0.4rem 1rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      background: rgb(209, 205, 205);
+    }
+  }
+}
+
 .ShowDrinks {
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
   .display-flex {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    img {
-      width: 400px;
-      height: 300px;
+    max-width: 1500px;
+    margin: 0 auto;
+
+    .drink-wrapper {
+      box-shadow: 0px 0px 11px 1px rgba(211, 208, 211, 0.76);
+      margin-bottom: 2rem;
+
+      img {
+        width: 400px;
+        height: 300px;
+      }
+
+      .drink-info {
+        padding: 1rem;
+
+        p {
+          padding-bottom: 0.3rem;
+        }
+      }
     }
   }
 }
